@@ -1,16 +1,12 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-base {
+  @apply font-bold px-5 py-1 text-sm uppercase rounded-md;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.button-game {
+  @apply bg-gray-300 p-2 h-40 w-40 rounded-full border-8;
 }
 
-* {
-  box-sizing: border-box;
-}
