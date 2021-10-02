@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Front-end Style Guide
 
-## Getting Started
+## Layout
 
-First, run the development server:
+The designs were created to the following widths:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Mobile: 375px
+- Desktop: 1366px
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Colors
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Primary
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Scissors Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%)
+- Paper Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%)
+- Rock Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%)
+- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
+- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Neutral
 
-## Learn More
+- Dark Text: hsl(229, 25%, 31%)
+- Score Text: hsl(229, 64%, 46%)
+- Header Outline: hsl(217, 16%, 45%)
 
-To learn more about Next.js, take a look at the following resources:
+### Background
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Radial Gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Fonts
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Family: [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed)
+- Weights: 600, 700

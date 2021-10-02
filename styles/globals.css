@@ -3,10 +3,38 @@
 @tailwind utilities;
 
 .button-base {
-  @apply font-bold px-5 py-1 text-sm uppercase rounded-md;
+  @apply font-bold px-5 py-1 text-sm uppercase rounded-md focus:ring-4 ring-indigo-300 transition-all duration-150;
 }
 
 .button-game {
-  @apply bg-gray-300 p-2 h-40 w-40 rounded-full border-8;
+  @apply bg-gray-100 p-2 h-28 w-28 md:h-48 md:w-48 rounded-full border-6 md:border-8;
+  box-shadow: inset 0px 22px 0px #a8a8a8;
 }
 
+.btn-red {
+  box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px rgba(185, 28, 28),
+    0px 3px 0px rgba(185, 28, 28), 0px 4px 0px rgba(185, 28, 28),
+    0px 5px 0px rgba(185, 28, 28), 0px 6px 0px rgba(185, 28, 28),
+    0px 7px 0px rgba(185, 28, 28), 0px 8px 0px rgba(185, 28, 28),
+    0px 9px 0px rgba(185, 28, 28), 0px 10px 0px rgba(185, 28, 28);
+}
+
+.btn-blue {
+  box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px rgba(29, 78, 216),
+    0px 3px 0px rgba(29, 78, 216), 0px 4px 0px rgba(29, 78, 216),
+    0px 5px 0px rgba(29, 78, 216), 0px 6px 0px rgba(29, 78, 216),
+    0px 7px 0px rgba(29, 78, 216), 0px 8px 0px rgba(29, 78, 216),
+    0px 9px 0px rgba(29, 78, 216), 0px 10px 0px rgba(29, 78, 216);
+}
+
+.btn-yellow {
+  box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px rgba(245, 158, 11),
+    0px 3px 0px rgba(245, 158, 11), 0px 4px 0px rgba(245, 158, 11),
+    0px 5px 0px rgba(245, 158, 11), 0px 6px 0px rgba(245, 158, 11),
+    0px 7px 0px rgba(245, 158, 11), 0px 8px 0px rgba(245, 158, 11),
+    0px 9px 0px rgba(245, 158, 11), 0px 10px 0px rgba(245, 158, 11);
+}
+
+.uwu {
+  background: radial-gradient(hsl(214, 47%, 23%) to hsl(237, 49%, 15%));
+}
