@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+} from "react";
 import Image from "next/image";
 
 import imgPaper from "../public/icon-paper.svg";
@@ -31,62 +37,69 @@ const Results = () => {
     loseUser,
   } = useContext(ScoreContext);
 
-  const showValueUser = (val: ValuesTypes): void => {
-    switch (val) {
-      case "paper":
-        // setImgUser(imgPaper);
-        setColorBorder({
-          ...colorBorder,
-          user: "btn-blue border-blue-600",
-          imgUser: imgPaper,
-        });
-        break;
-      case "rock":
-        // setImgUser(rock);
-        setColorBorder({
-          ...colorBorder,
-          user: "btn-red border-red-600",
-          imgUser: rock,
-        });
-        break;
-      case "scissors":
-        // setImgUser(scissors);
-        setColorBorder({
-          ...colorBorder,
-          user: "btn-yellow border-yellow-400",
-          imgUser: scissors,
-        });
-        break;
-    }
-  };
-  const showValueHouse = (val: ValuesTypes): void => {
-    switch (val) {
-      case "paper":
-        // setImgHouse(imgPaper);
-        setColorBorder({
-          ...colorBorder,
-          house: "btn-blue border-blue-600",
-          imgHouse: imgPaper,
-        });
-        break;
-      case "rock":
-        // setImgHouse(rock);
-        setColorBorder({
-          ...colorBorder,
-          house: "btn-red border-red-600",
-          imgHouse: rock,
-        });
-        break;
-      case "scissors":
-        // setImgHouse(scissors);
-        setColorBorder({
-          ...colorBorder,
-          house: "btn-yellow border-yellow-400",
-          imgHouse: scissors,
-        });
-        break;
-    }
-  };
+  const showValueUser = useCallback(
+    (val: ValuesTypes): void => {
+      switch (val) {
+        case "paper":
+          // setImgUser(imgPaper);
+          setColorBorder({
+            ...colorBorder,
+            user: "btn-blue border-blue-600",
+            imgUser: imgPaper,
+          });
+          break;
+        case "rock":
+          // setImgUser(rock);
+          setColorBorder({
+            ...colorBorder,
+            user: "btn-red border-red-600",
+            imgUser: rock,
+          });
+          break;
+        case "scissors":
+          // setImgUser(scissors);
+          setColorBorder({
+            ...colorBorder,
+            user: "btn-yellow border-yellow-400",
+            imgUser: scissors,
+          });
+          break;
+      }
+    },
+    [colorBorder]
+  );
+
+  const showValueHouse = useCallback(
+    (val: ValuesTypes): void => {
+      switch (val) {
+        case "paper":
+          // setImgHouse(imgPaper);
+          setColorBorder({
+            ...colorBorder,
+            house: "btn-blue border-blue-600",
+            imgHouse: imgPaper,
+          });
+          break;
+        case "rock":
+          // setImgHouse(rock);
+          setColorBorder({
+            ...colorBorder,
+            house: "btn-red border-red-600",
+            imgHouse: rock,
+          });
+          break;
+        case "scissors":
+          // setImgHouse(scissors);
+          setColorBorder({
+            ...colorBorder,
+            house: "btn-yellow border-yellow-400",
+            imgHouse: scissors,
+          });
+          break;
+      }
+    },
+    [colorBorder]
+  );
 
   useEffect(() => {
     if (valUser) {
@@ -117,9 +130,6 @@ const Results = () => {
     ) {
       setWinner("the house winner");
       loseUser();
-      setTimeout(() => {
-        playAgain();
-      }, 10000);
     } else if (
       (valUser === "paper" && valHouse === "rock") ||
       (valUser === "scissors" && valHouse === "paper") ||
