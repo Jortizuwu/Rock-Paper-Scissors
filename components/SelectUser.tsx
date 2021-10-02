@@ -16,7 +16,7 @@ const SelectUser = () => {
         <Image src={triangle} alt="paper" className="" />
       </div>
       <div className="absolute inset-0">
-        <div className="z-40 flex-grow-0 flex flex-row justify-between w-64 sm:w-2/3 md:w-full lg:w-9/12 mx-auto">
+        <div className="z-40 flex-grow-0 flex flex-row justify-between w-64 sm:w-2/3 md:w-full lg:w-9/12 xl:w-full mx-auto">
           <button
             onClick={() => getValUser("paper")}
             className="button-game z-40 border-blue-600 btn-blue"
