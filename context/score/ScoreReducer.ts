@@ -4,6 +4,7 @@ export interface InitialValues {
   valUser: ValuesTypes;
   valHouse: ValuesTypes;
   scoreUser: number;
+  resetScore: boolean | null;
 }
 
 export type actionTypes =
@@ -11,7 +12,8 @@ export type actionTypes =
   | { type: "house"; payload: ValuesTypes }
   | { type: "again" }
   | { type: "win"; payalod: number }
-  | { type: "lose" };
+  | { type: "lose" }
+  | { type: "reset" };
 
 export const ScoreReducer = (
   state: InitialValues,
@@ -38,8 +40,14 @@ export const ScoreReducer = (
       return {
         ...state,
         scoreUser: action.payalod,
+        resetScore: false,
       };
     case "lose":
+      return {
+        ...state,
+        resetScore: true,
+      };
+    case "reset":
       return {
         ...state,
         scoreUser: 0,

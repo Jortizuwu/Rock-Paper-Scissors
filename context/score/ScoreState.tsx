@@ -1,14 +1,18 @@
 import React, { useReducer } from "react";
 import { ValuesTypes } from "../../components/Results";
 
+
 import ScoreContext from "./ScoreContext";
 import { InitialValues, ScoreReducer } from "./ScoreReducer";
 
 const ScoreState = ({ children }: any): JSX.Element => {
+
+
   const initailState: InitialValues = {
     valHouse: null,
     valUser: null,
     scoreUser: 0,
+    resetScore: false,
   };
 
   const [state, dispatch] = useReducer(ScoreReducer, initailState);
@@ -28,6 +32,11 @@ const ScoreState = ({ children }: any): JSX.Element => {
   };
 
   const playAgain = (): void => {
+    if (state.resetScore === true) {
+      dispatch({
+        type: "reset",
+      });
+    }
     dispatch({
       type: "again",
     });

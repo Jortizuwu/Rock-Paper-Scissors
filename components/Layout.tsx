@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import Head from "next/head";
+const ip = require("ip");
+
 import Rules from "./Rules";
+import ApiContext from "../context/api/ApiContext";
+import ViewTopPlayers from "./ViewTopPlayers";
+import ScoreContext from "../context/score/ScoreContext";
+import InfoUser from "./InfoUser";
 
 const Layout = ({ children }: any): JSX.Element => {
+  const { getTop, getUserByIP, updateScoreUser, user } = useContext(ApiContext);
+  const { scoreUser } = useContext(ScoreContext);
+
+  const data = useCallback(() => {
+    getTop();
+  }, [getTop]);
+
+  useEffect(() => {
+    data();
+  }, [data]);
+
+  useEffect(() => {
+    getUserByIP("172.18.200.198");
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      if (scoreUser.toString() > user.puntaje) {
+        updateScoreUser(user.ip, scoreUser.toString());
+      }
+    }
+  }, [scoreUser]);
+
   return (
     <>
       <Head>
@@ -16,9 +45,11 @@ const Layout = ({ children }: any): JSX.Element => {
       </Head>
       <main className="bg-gradient-to-r from-indigo-900 to-blue-800 min-h-screen w-full p-1 relative">
         <div className="container mx-auto w-10/12 md:w-8/12 mt-7">
+          <InfoUser />
           {children}
         </div>
         <Rules />
+        <ViewTopPlayers />
       </main>
     </>
   );

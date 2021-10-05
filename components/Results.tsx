@@ -11,6 +11,9 @@ import imgPaper from "../public/icon-paper.svg";
 import rock from "../public/icon-rock.svg";
 import scissors from "../public/icon-scissors.svg";
 import ScoreContext from "../context/score/ScoreContext";
+import ApiContext from "../context/api/ApiContext";
+import CreateUser from "./CreateUser";
+import { UiContext } from "../context/ui/UiContext";
 
 export type ValuesTypes = "paper" | "rock" | "scissors" | null;
 
@@ -23,6 +26,7 @@ const Results = () => {
     imgUser: null || "",
     imgHouse: null || "",
   });
+
   const { house, imgHouse, imgUser, user } = colorBorder;
 
   const [winner, setWinner] = useState("");
@@ -36,6 +40,9 @@ const Results = () => {
     scoreUser,
     loseUser,
   } = useContext(ScoreContext);
+
+  const { user: userApi } = useContext(ApiContext);
+  const { handleOpenModalRegister, viewRegisterPlayer } = useContext(UiContext);
 
   const showValueUser = useCallback(
     (val: ValuesTypes): void => {
@@ -129,6 +136,10 @@ const Results = () => {
       (valHouse === "rock" && valUser === "scissors")
     ) {
       setWinner("the house winner");
+      if (scoreUser > 0 && userApi === null) {
+        handleOpenModalRegister();
+        return;
+      }
       loseUser();
     } else if (
       (valUser === "paper" && valHouse === "rock") ||
@@ -195,6 +206,7 @@ const Results = () => {
           </button>
         </div>
       </div>
+      {viewRegisterPlayer && <CreateUser />}
     </div>
   );
 };
