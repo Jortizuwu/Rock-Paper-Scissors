@@ -10,7 +10,6 @@ export interface GetUserByIP {
 }
 
 export interface ApiUsuario {
-  ip: string;
   nombre: string;
   puntaje: string;
   uid: string;

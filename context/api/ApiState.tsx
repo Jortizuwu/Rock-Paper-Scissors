@@ -22,21 +22,24 @@ const ApiState = ({ children }: any) => {
         payload: data,
       });
     } catch (error) {
-      console.log(error.response.data.msg);
+      // console.log(error.response.data.msg);
     }
   };
 
-  const getUserByIP = async (ip: string): Promise<void> => {
+  const getUserByIP = async (nombre: string): Promise<void> => {
     try {
-      const { data } = await scoreApi.get<GetUserByIP>(`/usuarios/${ip}`);
+      const { data } = await scoreApi.get<GetUserByIP>(`/usuarios/${nombre}`);
       dispatch({
         type: "addUser",
         payload: data.usuario,
       });
       Swal.fire("Welcome", data.usuario.nombre.toUpperCase(), "success");
     } catch (error) {
-      Swal.fire("Welcome", "play and earn points", "info");
-      // console.log(error.response.data.msg);
+      Swal.fire(
+        "Error",
+        "User not found, please check your name is correct",
+        "error"
+      );
     }
   };
 
@@ -63,8 +66,10 @@ const ApiState = ({ children }: any) => {
         type: "addUser",
         payload: data.usuario,
       });
+      Swal.fire("Welcome", "User created successfully", "success");
     } catch (error) {
       console.log(error.response.data.msg);
+      Swal.fire("Error", error.response.data.msg, "error");
     }
   };
 

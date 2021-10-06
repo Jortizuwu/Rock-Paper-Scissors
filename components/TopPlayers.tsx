@@ -21,7 +21,7 @@ const TopPlayers = () => {
             className=" bg-white w-full mx-auto rounded px-6 py-2 flex felx-row justify-between "
             key={user.uid}
           >
-            <div className="w-1/3 flex flex-row justify-between items-center  pr-2">
+            <div className="w-1/2 flex flex-row justify-between items-center  pr-2">
               <div className="h-10">
                 {idx <= 2 ? (
                   <Image src={imgs[idx]} height="40" width="40" alt="uwu" />
