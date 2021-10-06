@@ -1,10 +1,11 @@
 import React, { useReducer } from "react";
 import Swal from "sweetalert2";
+import axios, { Axios, AxiosError } from "axios";
 
 import scoreApi from "../../config/ScoreApi";
 import ApiContext from "./ApiContext";
 import { apiReducer, apiState } from "./apiReducer";
-import { GetUserByIP, TopUser } from "../../config/apiInterfaces";
+import { ApiUsuario, GetUserByIP, TopUser } from "../../config/apiInterfaces";
 
 const ApiState = ({ children }: any) => {
   const initialState: apiState = {
@@ -51,24 +52,24 @@ const ApiState = ({ children }: any) => {
       await scoreApi.put(`/usuarios/${ip}`, {
         puntaje,
       });
-    } catch (error) {
-      console.log(error.response.data.msg);
+    } catch (error: any) {
+      console.log(error.response.data.msg!);
     }
   };
 
   const createUser = async (nombre: string, puntaje: string): Promise<void> => {
     try {
-      const { data } = await scoreApi.post("/usuarios", {
+      const { data } = await scoreApi.post<any>("/usuarios", {
         nombre,
         puntaje,
       });
       dispatch({
         type: "addUser",
-        payload: data.usuario,
+        payload: data.usuario!,
       });
       Swal.fire("Welcome", "User created successfully", "success");
-    } catch (error) {
-      console.log(error.response.data.msg);
+    } catch (error: any) {
+      // console.log(error.response.data.msg);
       Swal.fire("Error", error.response.data.msg, "error");
     }
   };
