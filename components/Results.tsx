@@ -152,7 +152,7 @@ const Results = () => {
   }, [valHouse, valUser]);
 
   return (
-    <div className="h-auto mt-14 w-full mx-auto p-2 flex flex-col justify-between relative animate__animated animate__fadeIn">
+    <div className="h-auto mt-8 w-full mx-auto p-2 flex flex-col justify-between relative animate__animated animate__fadeIn">
       <div className="flex flex-row justify-between w-full">
         <div className="flex justify-between items-center sm:flex-col space-y-4 flex-col-reverse">
           <h3 className="font-semibold text-white mt-8 sm:mt-0 text-xs sm:text-xl text-center uppercase">
@@ -199,10 +199,24 @@ const Results = () => {
         </p>
         <div className="h-11 w-full">
           <button
-            className="button-base uppercase bg-white text-red-500 h-full w-9/12"
+            className="button-base uppercase bg-white text-red-500 h-full w-9/12 text-center"
             onClick={playAgain}
           >
             Play again
+            <svg
+              className="w-6 h-6 ml-1 inline-block"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              ></path>
+            </svg>
           </button>
         </div>
       </div>

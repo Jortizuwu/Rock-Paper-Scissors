@@ -8,7 +8,7 @@ import ScoreContext from "../context/score/ScoreContext";
 import InfoUser from "./InfoUser";
 
 const Layout = ({ children }: any): JSX.Element => {
-  const { getTop, updateScoreUser, user } = useContext(ApiContext);
+  const { getTop, updateScoreUser, user, getUserByIP } = useContext(ApiContext);
   const { scoreUser } = useContext(ScoreContext);
 
   const data = useCallback(() => {
@@ -18,6 +18,13 @@ const Layout = ({ children }: any): JSX.Element => {
   useEffect(() => {
     data();
   }, [data]);
+
+  useEffect(() => {
+    const name = localStorage.getItem("name");
+    if (name) {
+      getUserByIP(name);
+    }
+  }, []);
 
   useEffect(() => {
     if (user) {

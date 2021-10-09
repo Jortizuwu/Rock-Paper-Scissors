@@ -6,6 +6,7 @@ import { UiContext } from "../context/ui/UiContext";
 import oro from "../public/Oro.png";
 import plata from "../public/plata.png";
 import trofeo from "../public/trofeo.png";
+import Modal from "./Modal";
 
 const imgs = [trofeo, oro, plata];
 
@@ -46,30 +47,9 @@ const TopPlayers = () => {
     );
   };
   return (
-    <div className="bg-white rounded-lg">
-      <div className="flex items-start justify-between p-5 border-b border-solid border-gray-200 rounded-t">
-        <h3 className="text-3xl font-semibold text-center text-blue-400 uppercase">
-          Top Players
-        </h3>
-        <button
-          className="p-1 ml-auto bg-transparent border-0 text-gray-300 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-          onClick={handleCloseModalTop}
-        >
-          <span className="bg-transparent h-6 w-6 text-2xl block outline-none focus:outline-none">
-            X
-          </span>
-        </button>
-      </div>
+    <Modal handleCloseModal={handleCloseModalTop} title="Top User">
       {userList()}
-      <div className="flex items-center justify-end p-4 border-t border-solid border-gray-200 rounded-b">
-        <button
-          onClick={handleCloseModalTop}
-          className="text-purple-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-        >
-          Close
-        </button>
-      </div>
-    </div>
+    </Modal>
   );
 };
 

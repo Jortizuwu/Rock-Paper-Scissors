@@ -22,12 +22,12 @@ const ApiState = ({ children }: any) => {
         type: "getTop",
         payload: data,
       });
-    } catch (error) {
-      // console.log(error.response.data.msg);
+    } catch (error: any) {
+      Swal.fire("Error", error.response.data.msg, "error");
     }
   };
 
-  const getUserByIP = async (nombre: string): Promise<void> => {
+  const getUserByIP = async (nombre: string | null): Promise<void> => {
     try {
       const { data } = await scoreApi.get<GetUserByIP>(`/usuarios/${nombre}`);
       dispatch({
@@ -74,6 +74,13 @@ const ApiState = ({ children }: any) => {
     }
   };
 
+  const handleLogout = (): void => {
+    localStorage.removeItem("name");
+    dispatch({
+      type: "logout",
+    });
+  };
+
   return (
     <ApiContext.Provider
       value={{
@@ -81,6 +88,7 @@ const ApiState = ({ children }: any) => {
         createUser,
         getUserByIP,
         updateScoreUser,
+        handleLogout,
         top: state.top,
         user: state.user,
       }}

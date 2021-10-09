@@ -11,7 +11,7 @@ const SelectUser = () => {
   const { getValUser } = useContext(ScoreContext);
 
   return (
-    <div className="h-auto flex flex-col mt-14 w-full sm:w-10/12 lg:w-3/4 xl:w-2/4 mx-auto p-2 relative animate__animated animate__fadeIn">
+    <div className="h-auto flex flex-col mt-8 w-full sm:w-10/12 lg:w-3/4 xl:w-2/4 mx-auto p-2 relative animate__animated animate__fadeIn">
       <div className="mx-auto w-44 md:w-64 z-0 relative mt-8 md:mt-14 lg:mt-20">
         <Image src={triangle} alt="paper" className="" />
       </div>
